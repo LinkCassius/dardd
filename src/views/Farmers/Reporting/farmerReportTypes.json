@@ -1,0 +1,228 @@
+{
+    "data": [
+      {
+            "id": "0",
+            "name":"ALL"
+      },
+      {
+        "id": "1",
+        "name":"Farmer Category"
+      },
+      {
+        "id": "2",
+        "name":"Registered Entity"
+      },
+      {
+        "id": "3",
+        "name":"Type of Ownership"
+      },
+      {
+        "id": "4",
+        "name":"Land Aquisition"
+      },
+      {
+        "id": "5",
+        "name":"Age Groups"
+      },
+      {
+        "id": "6",
+        "name":"Gender"
+      },
+      {
+        "id": "7",
+        "name":"PWDs"
+      },
+      {
+        "id": "8",
+        "name":"Population Group"
+      },
+      {
+        "id": "9",
+        "name":"Language"
+      },
+      {
+        "id": "10",
+        "name":"Running Farm"
+      },
+      {
+        "id": "11",
+        "name":"Redistribution"
+      },
+      {
+        "id": "12",
+        "name":"Support Programme"
+      },
+      {
+        "id": "13",
+        "name":"Farm SIZE"
+      },
+      {
+        "id": "14",
+        "name":"Approximate Annual Turnover"
+      },
+      {
+        "id": "15",
+        "name":"Livestock"
+      },
+      {
+        "id": "16",
+        "name":"Aquaculture"
+      },
+      {
+        "id": "17",
+        "name":"Sea Fishing"
+      },
+      {
+        "id": "18",
+        "name":"Game Farming"
+      },
+      {
+        "id": "19",
+        "name":"Fixed Structures - FARM HOUSE STEAD"
+      },
+      {
+        "id": "20",
+        "name":"Fixed Structures - STORAGE"
+      },
+      {
+        "id": "21",
+        "name":"Fixed Structures - POULTRY HOUSES"
+      },
+      {
+        "id": "22",
+        "name":"Fixed Structures - PIGSTY"
+      },
+      {
+        "id": "23",
+        "name":"Fixed Structures - PARKHOUSE"
+      },
+      {
+        "id": "24",
+        "name":"Fixed Structures - FENCING"
+      },
+      {
+        "id": "25",
+        "name":"Fixed Structures - OTHER"
+      },
+      {
+        "id": "26",
+        "name":"Irrigation System - DRIP / MICRO"
+      },
+      {
+        "id": "27",
+        "name":"Irrigation System - SPRINKLER"
+      },
+      {
+        "id": "28",
+        "name":"Irrigation System - CENTRE PIVOTS"
+      },
+      {
+        "id": "29",
+        "name":"Irrigation System - FURROW"
+      },
+      {
+        "id": "30",
+        "name":"Irrigation System - FLOOD"
+      },
+      {
+        "id": "31",
+        "name":"Irrigation System - OTHER"
+      },
+      {
+        "id": "32",
+        "name":"Water Infrastructure - RIVER"
+      },
+      {
+        "id": "33",
+        "name":"Water Infrastructure - DAMS"
+      },
+      {
+        "id": "34",
+        "name":"Water Infrastructure - CANAL"
+      },
+      {
+        "id": "35",
+        "name":"Water Infrastructure - BOREHOLES"
+      },
+      {
+        "id": "36",
+        "name":"Water Infrastructure - OTHER"
+      },
+      {
+        "id": "37",
+        "name":"Machinery - TRACTOR"
+      },
+      {
+        "id": "38",
+        "name":"Machinery - COMBINE HARVESTER"
+      },
+      {
+        "id": "39",
+        "name":"Machinery - TRUCK"
+      },
+      {
+        "id": "40",
+        "name":"Machinery - LIGHT DELIVERY VEHICLE"
+      },
+      {
+        "id": "41",
+        "name":"Machinery - OTHER"
+      },
+      {
+        "id": "42",
+        "name":"Implements - PLOUGH"
+      },
+      {
+        "id": "43",
+        "name":"Implements - PLANTER"
+      },
+      {
+        "id": "44",
+        "name":"Implements - TILLER"
+      },
+      {
+        "id": "45",
+        "name":"Implements - GARDEN TOOLS"
+      },
+      {
+        "id": "46",
+        "name":"Implements - TRAILER"
+      },
+      {
+        "id": "47",
+        "name":"Implements - OTHER"
+      },
+      {
+        "id": "48",
+        "name":"Other - DIP TANK"
+      },
+      {
+        "id": "49",
+        "name":"Other - ACCESS ROAD"
+      },
+      {
+        "id": "50",
+        "name":"Other - ELECTRICITY"
+      },
+      {
+        "id": "51",
+        "name":"Other - OTHER"
+      },
+      {
+        "id": "52",
+        "name":"Dip Tank"
+      },
+      {
+        "id": "53",
+        "name":"Dip Tank - TYPES"
+      },
+      {
+        "id": "54",
+        "name":"Veterinary Services"
+      },
+      {
+        "id": "55",
+        "name":"Veterinary Services - TYPES"
+      }
+    ]
+}
