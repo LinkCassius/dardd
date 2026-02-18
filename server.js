@@ -62,7 +62,7 @@ var exportFarmers = require("./routes/exportExcel");
 
 var app = express();
 
-const { port } = Config;
+const port = process.env.PORT || Config.port || 3000;
 
 mongoose.Promise = require("bluebird");
 mongoose
@@ -199,3 +199,4 @@ app.listen(port, function () {
 //app.timeout = 360000;
 
 module.exports = app;
+
