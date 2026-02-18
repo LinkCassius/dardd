@@ -1,0 +1,83 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles with default layout.
+// If you are going to use dark layout please comment next line
+// @import "~@coreui/coreui-pro/scss/coreui.scss";
+@import "~@coreui/coreui-pro/scss/coreui.scss";
+
+// @import "~@coreui/coreui-pro/scss/themes/dark/coreui-dark.scss";
+
+// Import styles with dark layout
+// If you want to use dark layout uncomment next line
+//@import "~@coreui/coreui-pro/scss/themes/dark/coreui-dark.scss";
+
+// Temp fix for reactstrap
+@import "~@coreui/coreui-pro/scss/_dropdown-menu-right.scss";
+
+// If you want to add something do it here
+@import "custom";
+
+// ie fixes
+@import "ie-fix";
+
+// temp fixes
+@import "fixes";
+
+// Spinkit
+$spinkit-spinner-color: $body-color;
+@import "~spinkit/scss/spinkit.scss";
+
+// html {
+//   overflow-x: hidden;
+// }
+a:hover {
+  text-decoration: none;
+}
+.canvas canvas.chartjs-render-monitor {
+  background-color: #fff;
+}
+.canvas {
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-bottom: 50px;
+}
+.card.bg-white .card-body a {
+  color: #20a8d8;
+}
+.card-body,
+.card-title {
+  color: #23282c;
+}
+.header-fixed .app-body {
+  margin-bottom: 55px;
+}
+// .modal-body {
+//     height: 400px;
+//     overflow: scroll;
+// }
+// .modal-dialog {
+//     max-width: 800px;
+// }
+.modal-body .form-check {
+  margin-bottom: 10px;
+}
+span.info {
+  color: #20a8d9;
+}
+
+// map controle
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 30px;
+}
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+  stroke: black;
+}
