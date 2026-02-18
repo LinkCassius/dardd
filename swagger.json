@@ -1,0 +1,2388 @@
+{
+  "info": {
+    "title": "TDAP API Doc",
+    "version": "1.0.0",
+    "description": "API's For TDAP"
+  },
+  "basePath": "/",
+  "swagger": "2.0",
+  "paths": {
+    "/api/cnd": {
+      "post": {
+        "tags": [
+          "Add / Update, List Cnd"
+        ],
+        "description": "Returns a object of cnd",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cndName",
+            "description": "name of cnd",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cndCode",
+            "description": "unique code of cnd",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cndGroup",
+            "description": "Group cnd belongs to",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "desc",
+            "description": "description of cnd",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "description of cnd",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "priority",
+            "description": "priority of cnd",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "parent",
+            "description": "objectId of parent cnd",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of registered user",
+            "schema": {
+              "$ref": "#/definitions/Cnd"
+            }
+          }
+        }
+      }
+    },
+    "/api/cndlist": {
+      "get": {
+        "tags": [
+          "Add / Update, List Cnd"
+        ],
+        "description": "Returns a cnd list according to params",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cndGroup",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "parent",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array list of cnds",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "totalRecCount": {
+                  "type": "integer"
+                },
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Cnd"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contract": {
+      "post": {
+        "tags": [
+          "Add / Update, List Contract"
+        ],
+        "description": "Returns a object of Contract",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "contractName",
+            "description": "name of contract",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "description": "start Date of contract",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "endDate",
+            "description": "end Date of contract",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "serviceProvider",
+            "description": "name of service provider",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "contractDetail",
+            "description": "details of contract",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "description": "url of file attached with  contract",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "description of cnd",
+            "in": "formData",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of contract",
+            "schema": {
+              "$ref": "#/definitions/Contract"
+            }
+          }
+        }
+      }
+    },
+    "/api/contractlist": {
+      "get": {
+        "tags": [
+          "Add / Update, List Contract"
+        ],
+        "description": "Returns a Contract list according to params",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "contractName",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array list of cnds",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "totalRecCount": {
+                  "type": "integer"
+                },
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Contract"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/farmerAssetsServices": {
+      "post": {
+        "tags": [
+          "Add/Update - Farmer Assets and Services Details"
+        ],
+        "description": "Returns a object of Farmer Assets and Services Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "farmerId",
+            "description": "objectId of farmer",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "name": "fixedStructures",
+            "description": "fixed Structures object",
+            "in": "formData"
+          },
+          {
+            "name": "fixedStructureOther",
+            "description": "fixed Structures of farm, if not in given options",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "irrigationSystems",
+            "description": "irrigation Systems object",
+            "in": "formData"
+          },
+          {
+            "name": "irrigationSystemOther",
+            "description": "irrigation Systems of farm, if choose other",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "waterInfrastructure",
+            "description": "water Infrastructure Systems object",
+            "in": "formData"
+          },
+          {
+            "name": "waterInfrastructureOther",
+            "description": "water infrastructure Systems of farm, if choose other",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "machineryVehicles",
+            "description": "machinery Vehicles of farm",
+            "in": "formData"
+          },
+          {
+            "name": "machineryVehicleOther",
+            "description": "machinery Vehicles of farm, if choose other",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "implementsEquipment",
+            "description": "implements/ Equipment of farm",
+            "in": "formData"
+          },
+          {
+            "name": "implementsEquipmentOther",
+            "description": "implements/ Equipment of farm, if choose other",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "otherAssets",
+            "description": "other Assets of farm",
+            "in": "formData"
+          },
+          {
+            "name": "otherAssetsOther",
+            "description": "other Assets of farm, if choose other",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "isAccessToDipTank",
+            "description": "Is dip tank accessible",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "dipTankValue",
+            "description": "value of dip tank",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "dipTankType",
+            "description": "type of dip tank",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "govtSupport",
+            "description": "govt support object",
+            "in": "formData"
+          },
+          {
+            "name": "govtSupportOther",
+            "description": "Other govt support",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "haveExtensionServices",
+            "description": "Getting Extension Services Y/N",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "extensionServiceType",
+            "description": "type of extension Service",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "haveVeterinaryServices",
+            "description": "Getting Veterinary Services Y/N",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "veterinaryServiceType",
+            "description": "type of veterinary Service",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "earlyWarningInfo",
+            "description": "early Warning Info",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "agriEconomicInfo",
+            "description": "agri Economic Info",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "training",
+            "description": "training taken",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "annualTurnover",
+            "description": "annual Turnover id",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "preferredcommunication",
+            "description": "preferredcommunication id",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "hasCropInsurance",
+            "description": "hasCropInsurance",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "insuranceCompanyName",
+            "description": "insuranceCompanyName",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "insuranceType",
+            "description": "insuranceType",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "docCollection",
+            "description": "docCollection",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "signature",
+            "description": "signature",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "annualTurnoverObj",
+            "description": "annualTurnoverObj",
+            "in": "formData"
+          },
+          {
+            "name": "preferredcommunicationObj",
+            "description": "preferredcommunicationObj",
+            "in": "formData"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of Farmer Assets & Services",
+            "schema": {
+              "$ref": "#/definitions/FarmerAssetServices"
+            }
+          }
+        }
+      }
+    },
+    "/api/farmerRegistration": {
+      "post": {
+        "tags": [
+          "Add/Update - Farmer Personal details"
+        ],
+        "description": "Returns a object of Farmer Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "farmerType",
+            "description": "farmer type",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "surname",
+            "description": "surname of farmer",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "name of farmer",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "description": "emailaddress of farmer",
+            "in": "formData",
+            "type": "string",
+            "format": "email"
+          },
+          {
+            "name": "identityNumber",
+            "description": "identity no of farmer (Unique)",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contactNumber",
+            "description": "Phone/Mobile no of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "nationality",
+            "description": "SELECT nationality of farmer",
+            "in": "formData"
+          },
+          {
+            "name": "farmerType",
+            "description": "farmerType",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "residentialAddress",
+            "description": "residential Address of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "residentialPostalcode",
+            "description": "residentialPostalcode of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "postalAddress",
+            "description": "postal address of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "postalcode",
+            "description": "postalcode of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "farmingExperience",
+            "description": "Experience of farming",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "farmingExperienceYears",
+            "description": "Years of Experience in farming",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "ageGroups",
+            "description": "(ID) SELECT ageGroups",
+            "in": "formData"
+          },
+          {
+            "name": "gender",
+            "description": "gender of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "populationGroup",
+            "description": "(ID) SELECT populationGroup",
+            "in": "formData"
+          },
+          {
+            "name": "populationGroupOther",
+            "description": "populationGroup Other of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "homeLanguage",
+            "description": "(ID) SELECT homeLanguage",
+            "in": "formData"
+          },
+          {
+            "name": "homeLanguageOther",
+            "description": "homeLanguageOther of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "education",
+            "description": "(ID) SELECT education",
+            "in": "formData"
+          },
+          {
+            "name": "educationOther",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "operationType",
+            "description": "(ID) SELECT type of operation",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "isOwner",
+            "description": "farmer is owner of not",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ownershipType",
+            "description": "(ID) SELECT ownershipType",
+            "in": "formData"
+          },
+          {
+            "name": "otherOwnerShip",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "landAquisition",
+            "description": "(ID) SELECT landAquisition",
+            "in": "formData"
+          },
+          {
+            "name": "landAquisitionOther",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "programmeRedistribution",
+            "description": "(ID) SELECT programmeRedistribution",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "programmeRedistributionOther",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "noOfEmployees",
+            "description": "Total No. of Male, Female, Youth, With Disability",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "parmanentEmployment",
+            "description": "Number of Male, Female, Youth Male, Youth Female",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "seasonalEmployment",
+            "description": "Number of Male, Female, Youth Male, Youth Female",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "contractEmployment",
+            "description": "Number of Male, Female, Youth Male, Youth Female",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "nationalityObj",
+            "description": "_id- Nationality, cndName- Nationality Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "ageGroupsObj",
+            "description": "_id- ageGroups, cndName- ageGroups Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "populationGroupObj",
+            "description": "_id- populationGroup, cndName- populationGroup Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "homeLanguageObj",
+            "description": "_id- homeLanguage, cndName- homeLanguage Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "educationObj",
+            "description": "_id- education, cndName- education Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "ownershipTypeObj",
+            "description": "_id- ownershipType, cndName- ownershipType Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "landAquisitionObj",
+            "description": "_id- landAquisition, cndName- landAquisition Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "programmeRedistributionObj",
+            "description": "_id- Redistribution, cndName- Redistribution Text",
+            "in": "formData",
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of Farmer Personal Details",
+            "schema": {
+              "$ref": "#/definitions/FarmerDetail"
+            }
+          }
+        }
+      }
+    },
+    "/api/updatefarmerDetails": {
+      "post": {
+        "tags": [
+          "Update - Farmer Personal Details"
+        ],
+        "description": "Returns updated object of Farmer Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "id of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "farmerType",
+            "description": "farmer type",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "surname",
+            "description": "surname of farmer",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "name of farmer",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "description": "emailaddress of farmer",
+            "in": "formData",
+            "type": "string",
+            "format": "email"
+          },
+          {
+            "name": "identityNumber",
+            "description": "identity no of farmer (Unique)",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contactNumber",
+            "description": "Phone/Mobile no of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "nationality",
+            "description": "SELECT nationality of farmer",
+            "in": "formData"
+          },
+          {
+            "name": "farmerType",
+            "description": "farmerType",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "residentialAddress",
+            "description": "residential Address of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "residentialPostalcode",
+            "description": "residentialPostalcode of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "postalAddress",
+            "description": "postal address of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "postalcode",
+            "description": "postalcode of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "farmingExperience",
+            "description": "Experience of farming",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "farmingExperienceYears",
+            "description": "Years of Experience in farming",
+            "in": "formData",
+            "type": "number"
+          },
+          {
+            "name": "ageGroups",
+            "description": "(ID) SELECT ageGroups",
+            "in": "formData"
+          },
+          {
+            "name": "gender",
+            "description": "gender of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "populationGroup",
+            "description": "(ID) SELECT populationGroup",
+            "in": "formData"
+          },
+          {
+            "name": "populationGroupOther",
+            "description": "populationGroup Other of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "homeLanguage",
+            "description": "(ID) SELECT homeLanguage",
+            "in": "formData"
+          },
+          {
+            "name": "homeLanguageOther",
+            "description": "homeLanguageOther of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "education",
+            "description": "(ID) SELECT education",
+            "in": "formData"
+          },
+          {
+            "name": "educationOther",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "operationType",
+            "description": "(ID) SELECT type of operation",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "isOwner",
+            "description": "farmer is owner of not",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "ownershipType",
+            "description": "(ID) SELECT ownershipType",
+            "in": "formData"
+          },
+          {
+            "name": "otherOwnerShip",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "landAquisition",
+            "description": "(ID) SELECT landAquisition",
+            "in": "formData"
+          },
+          {
+            "name": "landAquisitionOther",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "programmeRedistribution",
+            "description": "(ID) SELECT programmeRedistribution",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "programmeRedistributionOther",
+            "description": "Other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "noOfEmployees",
+            "description": "Total No. of Male, Female, Youth, With Disability",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "parmanentEmployment",
+            "description": "Number of Male, Female, Youth Male, Youth Female",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "seasonalEmployment",
+            "description": "Number of Male, Female, Youth Male, Youth Female",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "contractEmployment",
+            "description": "Number of Male, Female, Youth Male, Youth Female",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "nationalityObj",
+            "description": "_id- Nationality, cndName- Nationality Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "ageGroupsObj",
+            "description": "_id- ageGroups, cndName- ageGroups Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "populationGroupObj",
+            "description": "_id- populationGroup, cndName- populationGroup Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "homeLanguageObj",
+            "description": "_id- homeLanguage, cndName- homeLanguage Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "educationObj",
+            "description": "_id- education, cndName- education Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "ownershipTypeObj",
+            "description": "_id- ownershipType, cndName- ownershipType Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "landAquisitionObj",
+            "description": "_id- landAquisition, cndName- landAquisition Text",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "programmeRedistributionObj",
+            "description": "_id- Redistribution, cndName- Redistribution Text",
+            "in": "formData",
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of farmer details with updated data",
+            "schema": {
+              "$ref": "#/definitions/FarmerDetail"
+            }
+          }
+        }
+      }
+    },
+    "/api/farmersList": {
+      "get": {
+        "tags": [
+          "Farmers List"
+        ],
+        "description": "Returns a Farmers list according to params",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array list of Farmers",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "totalRecCount": {
+                  "type": "integer"
+                },
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/FarmerDetail"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/interaction": {
+      "post": {
+        "tags": [
+          "Add / Update, List Interaction"
+        ],
+        "description": "Returns a object of Interaction",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "farmerId",
+            "description": "objectId of farmer",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "supervisor",
+            "description": "objectId of supervisor",
+            "in": "formData"
+          },
+          {
+            "name": "serviceType",
+            "description": "Type of service",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "serviceDate",
+            "description": "date of service",
+            "in": "formData",
+            "type": "date"
+          },
+          {
+            "name": "serviceDescription",
+            "description": "service type description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "serviceSignature",
+            "description": "farmer signature",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "additionalServices",
+            "description": "Additional Services required or requested",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "proposals",
+            "description": "recommendations or proposals",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "referralDetails",
+            "description": "Referral Details",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "commodity",
+            "description": "commodity",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "commodityOther",
+            "description": "other specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "extensionSignature",
+            "description": "Extension Practitioner signature",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "managerSignature",
+            "description": "Section Head or Agriculture Manager signature",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "Farmer ID Upload",
+            "description": "Upload Image of Farmer ID",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "createdBy",
+            "description": "Interaction Created By",
+            "in": "formData"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of Interaction",
+            "schema": {
+              "$ref": "#/definitions/FarmerInteraction"
+            }
+          }
+        }
+      }
+    },
+    "/api/interactionlist": {
+      "get": {
+        "tags": [
+          "Add / Update, List Interaction"
+        ],
+        "description": "Returns a Interaction list according",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array list of Interactions",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "totalRecCount": {
+                  "type": "integer"
+                },
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/FarmerInteraction"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/farmerProduction": {
+      "post": {
+        "tags": [
+          "Add/Update - Farmer's Farm Production Details"
+        ],
+        "description": "Returns a object of Farmer Production Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "farmerId",
+            "description": "objectId of farmer",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "name": "farmName",
+            "description": "Farm Name of farmer",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "farmLatitude",
+            "description": "Latitude of farm",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "farmLongitude",
+            "description": "Longitude of farm",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "portionNumber",
+            "description": "Portion Number of farm",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "portionName",
+            "description": "Portion Name of farm",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "province",
+            "description": "Province of farm",
+            "in": "formData"
+          },
+          {
+            "name": "metroDistrict",
+            "description": "Metro or District of farm",
+            "in": "formData"
+          },
+          {
+            "name": "farmMuncipalRegion",
+            "description": "Municipality region of farm",
+            "in": "formData"
+          },
+          {
+            "name": "wardNumber",
+            "description": "Ward Number of farm",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "townVillage",
+            "description": "Town or Village of farm",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "projectLegalEntityName",
+            "description": "Project Or Legal Entity Name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "businessEntityType",
+            "description": "ID of Business Entity Type",
+            "in": "formData"
+          },
+          {
+            "name": "totalMembersInEnitity",
+            "description": "Total Members in Entity",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "totalFarmSize",
+            "description": "Total Arable, Grazing, Non-Arable",
+            "in": "formData",
+            "type": "object"
+          },
+          {
+            "name": "liveStock",
+            "description": "Live Stock Object",
+            "in": "formData"
+          },
+          {
+            "name": "liveStockOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "horticulture",
+            "description": "Horticulture Object",
+            "in": "formData"
+          },
+          {
+            "name": "horticultureProduction",
+            "description": "horticulture Production Object",
+            "in": "formData"
+          },
+          {
+            "name": "horticultureOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "fieldCrops",
+            "description": "FieldCrops Object",
+            "in": "formData"
+          },
+          {
+            "name": "fieldCropsProduction",
+            "description": "fieldCrops Production Object",
+            "in": "formData"
+          },
+          {
+            "name": "fieldCropsOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "forestry",
+            "description": "Forestry Object",
+            "in": "formData"
+          },
+          {
+            "name": "forestryProduction",
+            "description": "forestry Production Object",
+            "in": "formData"
+          },
+          {
+            "name": "forestryOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "aquaculture",
+            "description": "Aquaculture Object",
+            "in": "formData"
+          },
+          {
+            "name": "aquacultureOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "seaFishing",
+            "description": "Sea Fishing Object",
+            "in": "formData"
+          },
+          {
+            "name": "seaFishingOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "gameFarming",
+            "description": "Game Farming Object",
+            "in": "formData"
+          },
+          {
+            "name": "gameFarmingOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "marketingChannelTypeFormal",
+            "description": "Formal Marketing Channel",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "marketingChannelTypeInformal",
+            "description": "Informal Marketing Channel",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "practiseAgroProcessing",
+            "description": "Practise AgroProcessing Activities (Y/N)",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "primaryAgroProcessing",
+            "description": "AgroProcessing Object",
+            "in": "formData"
+          },
+          {
+            "name": "primaryAgroProcessingOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "secondaryAgroProcessing",
+            "description": "secondaryAgroProcessing Object",
+            "in": "formData"
+          },
+          {
+            "name": "secondaryAgroProcessingOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "advancedAgroProcessing",
+            "description": "advancedAgroProcessing Object",
+            "in": "formData"
+          },
+          {
+            "name": "advancedAgroProcessingOther",
+            "description": "Other Specify",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "practiseAgroProcessingManual",
+            "description": "practiseAgroProcessingManual Y/N",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "provinceObj",
+            "description": "_id- dropdownID, cndName- dropdownText",
+            "in": "formData"
+          },
+          {
+            "name": "metroDistrictObj",
+            "description": "_id- dropdownID, cndName- dropdownText",
+            "in": "formData"
+          },
+          {
+            "name": "farmMuncipalRegionObj",
+            "description": "_id- dropdownID, cndName- dropdownText",
+            "in": "formData"
+          },
+          {
+            "name": "businessEntityTypeObj",
+            "description": "_id- dropdownID, cndName- dropdownText",
+            "in": "formData"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of Farmer Farm",
+            "schema": {
+              "$ref": "#/definitions/FarmerProduction"
+            }
+          }
+        }
+      }
+    },
+    "/api/performance": {
+      "post": {
+        "tags": [
+          "Add / Update, performance review"
+        ],
+        "description": "Returns success message",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "_id",
+            "description": "Indicator ID",
+            "in": "formData",
+            "required": true,
+            "type": "Object ID"
+          },
+          {
+            "name": "target",
+            "description": "target of Indicators",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "description": "cycleValue of Indicators (ex 2020, Jan 2020, Jan Feb Mar 2020)",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "indicatorTitle",
+            "description": "indicator title",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "IndicatorsDetail",
+            "description": "details of Indicators",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "description": "url of file attached with  Indicators",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "description of cnd",
+            "in": "formData",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of Indicators",
+            "schema": {
+              "$ref": "#/definitions/Indicators"
+            }
+          }
+        }
+      }
+    },
+    "/api/register": {
+      "post": {
+        "tags": [
+          "User Admin/Agent Registration"
+        ],
+        "description": "Returns a object of User in system",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "firstName",
+            "description": "firstName of user going to register",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "description": "lastName of user going to register",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userName",
+            "description": "userName of user for login",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "description": "phone of user",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "description": "email, attached with account",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "email"
+          },
+          {
+            "name": "password",
+            "description": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "password"
+          },
+          {
+            "name": "confirm_password",
+            "description": "confirm password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "password"
+          },
+          {
+            "name": "userGroup",
+            "description": "group of user like agent, farmer, admin, superadmin, objectId from UserGroup Collection",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "parentCustomer",
+            "description": "customer id of parent customer , objectId from customers collection",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of registered user",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "Returns a object of User registered in system",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "description": "Email from User Registered",
+            "in": "formData"
+          },
+          {
+            "name": "password",
+            "descriptionn": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "password"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Completed Object of user number with JWT token",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/api/userlist": {
+      "get": {
+        "tags": [
+          "Userlist"
+        ],
+        "description": "Returns a list Users in system",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userGroup",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "parentCustomer",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array list of Users's",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "totalRecCount": {
+                  "type": "integer"
+                },
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usergroup": {
+      "post": {
+        "tags": [
+          "Add / Update, List User Groups"
+        ],
+        "description": "Returns a object of user groups",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupName",
+            "description": "name of group",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "description",
+            "in": "formData",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An Object of user group",
+            "schema": {
+              "$ref": "#/definitions/UserGroup"
+            }
+          }
+        }
+      }
+    },
+    "/api/userGrouplist": {
+      "get": {
+        "tags": [
+          "Add / Update, List User Groups"
+        ],
+        "description": "Returns a User group list according to params",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupName",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "deleted",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array list of User Groups",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "totalRecCount": {
+                  "type": "integer"
+                },
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/UserGroup"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contract": {
+      "type": "object",
+      "properties": {
+        "contractName": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "number"
+        },
+        "endDate": {
+          "type": "number"
+        },
+        "serviceProvider": {
+          "type": "string"
+        },
+        "contractDetail": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        },
+        "createdDate": {
+          "type": "number"
+        },
+        "updatedDate": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "number"
+        }
+      }
+    },
+    "Cnd": {
+      "type": "object",
+      "properties": {
+        "cndName": {
+          "type": "string"
+        },
+        "cndCode": {
+          "type": "string"
+        },
+        "cndGroup": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "number"
+        },
+        "updatedDate": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "number"
+        }
+      }
+    },
+    "FarmerAssetServices": {
+      "type": "object",
+      "properties": {
+        "farmerId": {
+          "type": "object"
+        },
+        "fixedStructures": {
+          "type": "object"
+        },
+        "fixedStructureOther": {
+          "type": "string"
+        },
+        "irrigationSystems": {
+          "type": "object"
+        },
+        "irrigationSystemOther": {
+          "type": "string"
+        },
+        "waterInfrastructure": {
+          "type": "object"
+        },
+        "waterInfrastructureOther": {
+          "type": "string"
+        },
+        "machineryVehicles": {
+          "type": "object"
+        },
+        "machineryVehicleOther": {
+          "type": "string"
+        },
+        "implementsEquipment": {
+          "type": "object"
+        },
+        "implementsEquipmentOther": {
+          "type": "string"
+        },
+        "otherAssets": {
+          "type": "object"
+        },
+        "otherAssetsOther": {
+          "type": "string"
+        },
+        "isAccessToDipTank": {
+          "type": "boolean"
+        },
+        "dipTankValue": {
+          "type": "string"
+        },
+        "dipTankType": {
+          "type": "string"
+        },
+        "govtSupport": {
+          "type": "object"
+        },
+        "govtSupportOther": {
+          "type": "string"
+        },
+        "haveExtensionServices": {
+          "type": "boolean"
+        },
+        "extensionServiceType": {
+          "type": "string"
+        },
+        "haveVeterinaryServices": {
+          "type": "boolean"
+        },
+        "veterinaryServiceType": {
+          "type": "string"
+        },
+        "earlyWarningInfo": {
+          "type": "boolean"
+        },
+        "agriEconomicInfo": {
+          "type": "boolean"
+        },
+        "training": {
+          "type": "boolean"
+        },
+        "annualTurnover": {
+          "type": "string"
+        },
+        "preferredcommunication": {
+          "type": "string"
+        },
+        "hasCropInsurance": {
+          "type": "boolean"
+        },
+        "insuranceCompanyName": {
+          "type": "string"
+        },
+        "insuranceType": {
+          "type": "string"
+        },
+        "bankAccountNumber": {
+          "type": "string"
+        },
+        "bankAccountName": {
+          "type": "string"
+        },
+        "bank": {
+          "type": "object"
+        },
+        "bankBranch": {
+          "type": "object"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "enumeratorName": {
+          "type": "string"
+        },
+        "enumeratorEmail": {
+          "type": "string"
+        },
+        "enumeratorDate": {
+          "type": "string"
+        },
+        "enumeratorMobile": {
+          "type": "string"
+        },
+        "docCollection": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "annualTurnoverObj": {
+          "type": "object"
+        },
+        "preferredcommunicationObj": {
+          "type": "object"
+        },
+        "createdDate": {
+          "type": "date"
+        },
+        "updatedDate": {
+          "type": "date"
+        }
+      }
+    },
+    "FarmerDetail": {
+      "type": "object",
+      "properties": {
+        "surname": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "identityNumber": {
+          "type": "string"
+        },
+        "contactNumber": {
+          "type": "string"
+        },
+        "nationality": {
+          "type": "object"
+        },
+        "farmerType": "type:string",
+        "residentialAddress": {
+          "type": "string"
+        },
+        "residentialPostalcode": {
+          "type": "string"
+        },
+        "postalAddress": {
+          "type": "string"
+        },
+        "postalcode": {
+          "type": "string"
+        },
+        "farmingExperience": {
+          "type": "string"
+        },
+        "farmingExperienceYears": {
+          "type": "number"
+        },
+        "ageGroups": {
+          "type": "object"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "populationGroup": {
+          "type": "object"
+        },
+        "populationGroupOther": {
+          "type": "string"
+        },
+        "homeLanguage": {
+          "type": "object"
+        },
+        "homeLanguageOther": {
+          "type": "string"
+        },
+        "education": {
+          "type": "object"
+        },
+        "educationOther": {
+          "type": "string"
+        },
+        "operationType": {
+          "type": "string"
+        },
+        "isOwner": {
+          "type": "boolean"
+        },
+        "ownershipType": {
+          "type": "object"
+        },
+        "otherOwnerShip": {
+          "type": "string"
+        },
+        "landAquisition": {
+          "type": "object"
+        },
+        "landAquisitionOther": {
+          "type": "string"
+        },
+        "programmeRedistribution": {
+          "type": "object"
+        },
+        "programmeRedistributionOther": {
+          "type": "string"
+        },
+        "noOfEmployees": {
+          "type": "object"
+        },
+        "parmanentEmployment": {
+          "type": "object"
+        },
+        "seasonalEmployment": {
+          "type": "object"
+        },
+        "contractEmployment": {
+          "type": "object"
+        },
+        "nationalityObj": {
+          "type": "object"
+        },
+        "ageGroupsObj": {
+          "type": "object"
+        },
+        "populationGroupObj": {
+          "type": "object"
+        },
+        "homeLanguageObj": {
+          "type": "object"
+        },
+        "educationObj": {
+          "type": "object"
+        },
+        "ownershipTypeObj": {
+          "type": "object"
+        },
+        "landAquisitionObj": {
+          "type": "object"
+        },
+        "programmeRedistributionObj": {
+          "type": "object"
+        }
+      }
+    },
+    "FarmerInteraction": {
+      "type": "object",
+      "properties": {
+        "farmerId": {
+          "type": "object"
+        },
+        "supervisor": {
+          "type": "object"
+        },
+        "serviceType": {
+          "type": "string"
+        },
+        "serviceDate": {
+          "type": "date"
+        },
+        "serviceDescription": {
+          "type": "string"
+        },
+        "serviceSignature": {
+          "type": "string"
+        },
+        "additionalServices": {
+          "type": "string"
+        },
+        "proposals": {
+          "type": "boolean"
+        },
+        "referralDetails": {
+          "type": "string"
+        },
+        "commodity": {
+          "type": "object"
+        },
+        "commodityOther": {
+          "type": "string"
+        },
+        "extensionSignature": {
+          "type": "string"
+        },
+        "managerSignature": {
+          "type": "string"
+        },
+        "docCollection": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "object"
+        },
+        "createdDate": {
+          "type": "date"
+        },
+        "updatedDate": {
+          "type": "date"
+        }
+      }
+    },
+    "FarmerProduction": {
+      "type": "object",
+      "properties": {
+        "farmerId": {
+          "type": "object"
+        },
+        "farmName": {
+          "type": "string"
+        },
+        "farmLatitude": {
+          "type": "string"
+        },
+        "farmLongitude": {
+          "type": "string"
+        },
+        "portionNumber": {
+          "type": "string"
+        },
+        "portionName": {
+          "type": "string"
+        },
+        "province": {
+          "type": "object"
+        },
+        "metroDistrict": {
+          "type": "object"
+        },
+        "farmMuncipalRegion": {
+          "type": "object"
+        },
+        "wardNumber": {
+          "type": "string"
+        },
+        "townVillage": {
+          "type": "string"
+        },
+        "projectLegalEntityName": {
+          "type": "string"
+        },
+        "businessEntityType": {
+          "type": "object"
+        },
+        "totalMembersInEnitity": {
+          "type": "string"
+        },
+        "totalFarmSize": {
+          "type": "object"
+        },
+        "liveStock": {
+          "type": "object"
+        },
+        "liveStockOther": {
+          "type": "string"
+        },
+        "horticulture": {
+          "type": "object"
+        },
+        "horticultureProduction": {
+          "type": "object"
+        },
+        "horticultureOther": {
+          "type": "string"
+        },
+        "fieldCrops": {
+          "type": "object"
+        },
+        "fieldCropsProduction": {
+          "type": "object"
+        },
+        "fieldCropsOther": {
+          "type": "string"
+        },
+        "forestry": {
+          "type": "object"
+        },
+        "forestryProduction": {
+          "type": "object"
+        },
+        "forestryOther": {
+          "type": "string"
+        },
+        "aquaculture": {
+          "type": "object"
+        },
+        "aquacultureOther": {
+          "type": "string"
+        },
+        "seaFishing": {
+          "type": "object"
+        },
+        "seaFishingOther": {
+          "type": "string"
+        },
+        "gameFarming": {
+          "type": "object"
+        },
+        "gameFarmingOther": {
+          "type": "string"
+        },
+        "marketingChannelTypeFormal": {
+          "type": "boolean"
+        },
+        "marketingChannelTypeInformal": {
+          "type": "boolean"
+        },
+        "practiseAgroProcessing": {
+          "type": "boolean"
+        },
+        "primaryAgroProcessing": {
+          "type": "object"
+        },
+        "primaryAgroProcessingOther": {
+          "type": "string"
+        },
+        "secondaryAgroProcessing": {
+          "type": "object"
+        },
+        "secondaryAgroProcessingOther": {
+          "type": "string"
+        },
+        "advancedAgroProcessing": {
+          "type": "object"
+        },
+        "advancedAgroProcessingOther": {
+          "type": "string"
+        },
+        "practiseAgroProcessingManual": {
+          "type": "string"
+        },
+        "provinceObj": {
+          "type": "object"
+        },
+        "metroDistrictObj": {
+          "type": "object"
+        },
+        "farmMuncipalRegionObj": {
+          "type": "object"
+        },
+        "businessEntityTypeObj": {
+          "type": "object"
+        },
+        "createdDate": {
+          "type": "date"
+        },
+        "updatedDate": {
+          "type": "date"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "userGroup": {
+          "type": "string"
+        },
+        "parentCustomer": {
+          "type": "string"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "number"
+        }
+      }
+    },
+    "UserGroup": {
+      "type": "object",
+      "properties": {
+        "groupName": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "number"
+        },
+        "updatedDate": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "responses": {},
+  "parameters": {},
+  "securityDefinitions": {},
+  "tags": []
+}
